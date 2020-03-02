@@ -1,2 +1,2 @@
-# holded-rest-api-java-client
-A Java client for the Holded's REST API
+# holded-java-sdk
+A Java SDK for the Holded's REST API
