@@ -51,6 +51,36 @@ public class CreateDocumentBodyParams implements Serializable {
 	private final Integer salesChannel;
 	private Boolean isReceipt;
 	
+	public CreateDocumentBodyParams(String contactCode, String contactName,
+			String contactEmail, String contactAddress, String contactCity, String contactPostalCode,
+			String contactProvince, String contactCountry, String contactCountryCode, String description, Integer date,
+			String notes, String salesChannelId, String paymentMethodId, String designId, String language,
+			List<CreateDocumentItem> items, List<DocumentCustomField> customFields, String invoiceNum, String numSerieId,
+			String currency, BigDecimal currencyChange, List<String> tags, LocalDate dueDate, String shippingAddress,
+			String shippingPostalCode, String shippingCity, String shippingProvince, String shippingCountry,
+			Integer salesChannel) {
+		this(true, contactCode, contactName, contactEmail, contactAddress, contactCity,
+				contactPostalCode, contactProvince, contactCountry, contactCountryCode, description, date, notes,
+				salesChannelId, paymentMethodId, designId, language, items, customFields, invoiceNum, numSerieId,
+				currency, currencyChange, tags, dueDate, shippingAddress, shippingPostalCode, shippingCity,
+				shippingProvince, shippingCountry, salesChannel);
+	}
+	
+	public CreateDocumentBodyParams(String contactCode, String contactName,
+			String contactEmail, String contactAddress, String contactCity, String contactPostalCode,
+			String contactProvince, String contactCountry, String contactCountryCode, String description, Integer date,
+			String notes, String salesChannelId, String paymentMethodId, String designId, String language,
+			List<CreateDocumentItem> items, List<DocumentCustomField> customFields, String invoiceNum, String numSerieId,
+			String currency, BigDecimal currencyChange, List<String> tags, LocalDate dueDate, String shippingAddress,
+			String shippingPostalCode, String shippingCity, String shippingProvince, String shippingCountry,
+			Integer salesChannel, Boolean isReceipt) {
+		this(true, contactCode, contactName, contactEmail, contactAddress, contactCity,
+				contactPostalCode, contactProvince, contactCountry, contactCountryCode, description, date, notes,
+				salesChannelId, paymentMethodId, designId, language, items, customFields, invoiceNum, numSerieId,
+				currency, currencyChange, tags, dueDate, shippingAddress, shippingPostalCode, shippingCity,
+				shippingProvince, shippingCountry, salesChannel, isReceipt);
+	}
+	
 	public CreateDocumentBodyParams(Boolean applyContactDefaults, String contactCode, String contactName,
 			String contactEmail, String contactAddress, String contactCity, String contactPostalCode,
 			String contactProvince, String contactCountry, String contactCountryCode, String description, Integer date,
@@ -62,8 +92,8 @@ public class CreateDocumentBodyParams implements Serializable {
 		this(applyContactDefaults, contactCode, contactName, contactEmail, contactAddress, contactCity,
 				contactPostalCode, contactProvince, contactCountry, contactCountryCode, description, date, notes,
 				salesChannelId, paymentMethodId, designId, language, items, customFields, invoiceNum, numSerieId,
-				currency, currencyChange, tags, dueDate, shippingAddress, shippingPostalCode, shippingCity
-				, shippingProvince, shippingCountry, salesChannel, null);
+				currency, currencyChange, tags, dueDate, shippingAddress, shippingPostalCode, shippingCity,
+				shippingProvince, shippingCountry, salesChannel, null);
 	}
 
 	public CreateDocumentBodyParams(Boolean applyContactDefaults, String contactCode, String contactName,

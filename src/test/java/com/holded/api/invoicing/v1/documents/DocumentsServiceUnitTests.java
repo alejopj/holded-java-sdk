@@ -59,7 +59,7 @@ public class DocumentsServiceUnitTests {
 	 * Given a document is created
 	 * When the document is paid
 	 * And the document is requested
-	 * Then the document figures out as paid
+	 * Then the document is listed as paid
 	 */
 	@Test
 	public void payDocument() {
@@ -89,7 +89,7 @@ public class DocumentsServiceUnitTests {
 	/**
 	 * Given a sales order document is created
 	 * When all the items are shipped
-	 * Then all the items figure out as shipped
+	 * Then all the items are listed as shipped
 	 */
 	@Test
 	public void shipAllItems() {
@@ -98,8 +98,8 @@ public class DocumentsServiceUnitTests {
 	
 	/**
 	 * Given a sales order document is created
-	 * When the first item is shipped
-	 * Then the first item figures out as shipped
+	 * When all the items are shipped by line
+	 * Then all the items are listed as shipped
 	 */
 	@Test
 	public void shipItemsByLine() {
