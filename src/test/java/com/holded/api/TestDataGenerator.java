@@ -2,6 +2,8 @@ package com.holded.api;
 
 import java.io.File;
 import java.math.BigDecimal;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
@@ -35,7 +37,13 @@ public class TestDataGenerator {
 
 	public static File getFile() {
 		File file = new File("");
-		// TODO Write some content.
+		try {
+			Path path = Files.createTempFile(FAKER.file().fileName(), null);
+			file = path.toFile();
+			String text = FAKER.lorem().paragraph();
+			Files.writeString(path, text);
+		} catch (Exception e) {
+		}
 		return file;
 	}
 	
