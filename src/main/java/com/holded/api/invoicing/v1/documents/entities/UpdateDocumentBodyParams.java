@@ -10,13 +10,13 @@ public class UpdateDocumentBodyParams implements Serializable {
 	private final String desc;
 	private final String notes;
 	private final String language;
-	private final Integer date;
+	private final Long date;
 	private final List<UpdateDocumentItem> items;
 	private final String salesChannelId;
 	private final String expAccountId;
 	private final List<DocumentCustomField> customFields;
 	
-	public UpdateDocumentBodyParams(String desc, String notes, String language, Integer date,
+	public UpdateDocumentBodyParams(String desc, String notes, String language, Long date,
 			List<UpdateDocumentItem> items, String salesChannelId, String expAccountId,
 			List<DocumentCustomField> customFields) {
 		this.desc = desc;
@@ -41,7 +41,7 @@ public class UpdateDocumentBodyParams implements Serializable {
 		return language;
 	}
 
-	public Integer getDate() {
+	public Long getDate() {
 		return date;
 	}
 

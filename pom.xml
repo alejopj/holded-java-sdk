@@ -6,6 +6,13 @@
   <name>Java Holded SDK</name>
   <description>A Java client for the Holded's REST API</description>
   <dependencies>
+  	<!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
+	<dependency>
+	    <groupId>com.github.javafaker</groupId>
+	    <artifactId>javafaker</artifactId>
+	    <version>1.0.2</version>
+	    <scope>test</scope>
+	</dependency>
   	<!-- https://mvnrepository.com/artifact/com.google.inject/guice -->
 	<dependency>
 	    <groupId>com.google.inject</groupId>

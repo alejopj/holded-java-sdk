@@ -2,10 +2,10 @@ package com.holded.api.invoicing.v1.documents;
 
 import java.io.File;
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.holded.api.TestDataGenerator;
 import com.holded.api.invoicing.v1.documents.entities.AttachFileToDocumentFormData;
 import com.holded.api.invoicing.v1.documents.entities.CreateDocumentBodyParams;
 import com.holded.api.invoicing.v1.documents.entities.CreateDocumentItem;
@@ -18,6 +18,10 @@ import com.holded.api.invoicing.v1.documents.entities.UpdateDocumentBodyParams;
 import com.holded.api.invoicing.v1.documents.entities.UpdateDocumentItem;
 
 public class DocumentsServiceTestUtils {
+	
+	private static Integer SHORT_LIST_SIZE = 5;
+	private static Integer MEDIUM_LIST_SIZE = 10;
+	private static Integer MAX_UNITS = 10;
 
 	public static CreateDocumentBodyParams getCreateDocumentBodyParams(DocumentType documentType) {
 		switch (documentType) {
@@ -73,12 +77,11 @@ public class DocumentsServiceTestUtils {
 		}
 	}
 	
-	// TODO Randomize data.
 	public static SendDocumentBodyParams getSendDocumentBodyParams(String documentId) {
-		String mailTemplateId = null;
-		String emails = null;
-		String subject = null;
-		String message = null;
+		String mailTemplateId = TestDataGenerator.getAlphaNumericId();
+		String emails = TestDataGenerator.getEmail();
+		String subject = TestDataGenerator.getEmailSubject();
+		String message = TestDataGenerator.getEmailMessage();
 		String docIds = documentId;
 		return new SendDocumentBodyParams(mailTemplateId, emails, subject, message, docIds);
 	}
@@ -93,47 +96,45 @@ public class DocumentsServiceTestUtils {
 		return new ShipItemsByLineBodyParams(lines);
 	}
 	
-	// TODO Randomize data.
 	public static AttachFileToDocumentFormData getAttachFileToDocumentFormData() {
-		File file = null;
-		Boolean setMain = null;
+		File file = TestDataGenerator.getFile();
+		Boolean setMain = TestDataGenerator.getBoolean();
 		return new AttachFileToDocumentFormData(file, setMain);
 	}
 	
 	// Create document
 
-	// TODO Randomize data.
 	private static CreateDocumentBodyParams getSalesOrderCreateDocumentBodyParams() {
-		String contactCode = null;
-		String contactName = null;
-		String contactEmail = null;
-		String contactAddress = null;
-		String contactCity = null;
-		String contactPostalCode = null;
-		String contactProvince = null;
-		String contactCountry = null;
-		String contactCountryCode = null;
-		String description = null;
-		Integer date = null;
-		String notes = null;
-		String salesChannelId = null;
-		String paymentMethodId = null;
-		String designId = null;
-		String language = null;
-		List<CreateDocumentItem> items = new ArrayList<>();
-		List<DocumentCustomField> customFields = new ArrayList<>();
-		String invoiceNum = null;
-		String numSerieId = null;
-		String currency = null;
-		BigDecimal currencyChange = null;
-		List<String> tags = new ArrayList<>();
-		LocalDate dueDate = null;
-		String shippingAddress = null;
-		String shippingPostalCode = null;
-		String shippingCity = null;
-		String shippingProvince = null;
-		String shippingCountry = null;
-		Integer salesChannel = null;
+		String contactCode = TestDataGenerator.getContactCode();
+		String contactName = TestDataGenerator.getContactName();
+		String contactEmail = TestDataGenerator.getEmail();
+		String contactAddress = TestDataGenerator.getAddress();
+		String contactCity = TestDataGenerator.getCity();
+		String contactPostalCode = TestDataGenerator.getPostalCode();
+		String contactProvince = TestDataGenerator.getProvince();
+		String contactCountry = TestDataGenerator.getCountry();
+		String contactCountryCode = TestDataGenerator.getCountryCode();
+		String description = TestDataGenerator.getShortText();
+		Long date = TestDataGenerator.getPastDate();
+		String notes = TestDataGenerator.getShortText();
+		String salesChannelId = TestDataGenerator.getAlphaNumericId();
+		String paymentMethodId = TestDataGenerator.getAlphaNumericId();
+		String designId = TestDataGenerator.getAlphaNumericId();
+		String language = TestDataGenerator.getLanguage();
+		List<CreateDocumentItem> items = getCreateDocumentItems();
+		List<DocumentCustomField> customFields = getCustomFields();
+		String invoiceNum = TestDataGenerator.getAlphaNumericId();
+		String numSerieId = TestDataGenerator.getAlphaNumericId();
+		String currency = TestDataGenerator.getCurrency();
+		BigDecimal currencyChange = TestDataGenerator.getCurrencyExchangeRate();
+		List<String> tags = getTags();
+		Long dueDate = TestDataGenerator.getFutureDate();
+		String shippingAddress = TestDataGenerator.getAddress();
+		String shippingPostalCode = TestDataGenerator.getPostalCode();
+		String shippingCity = TestDataGenerator.getCity();
+		String shippingProvince = TestDataGenerator.getProvince();
+		String shippingCountry = TestDataGenerator.getCountry();
+		BigDecimal salesChannel = TestDataGenerator.getNumber();
 		return new CreateDocumentBodyParams(
 				contactCode, contactName, contactEmail,
 				contactAddress, contactCity, contactPostalCode, contactProvince, contactCountry, contactCountryCode,
@@ -144,16 +145,92 @@ public class DocumentsServiceTestUtils {
 	
 	// Update document
 
-	// TODO Randomize data.
-	private static UpdateDocumentBodyParams getSalesOrderUpdateDocumentBodyParams() {
-		String desc = null;
-		String notes = null;
-		String language = null;
-		Integer date = null;
-		List<UpdateDocumentItem> items = new ArrayList<>();
-		String salesChannelId = null;
-		String expAccountId = null;
+	private static List<CreateDocumentItem> getCreateDocumentItems() {
+		List<CreateDocumentItem> items = new ArrayList<>();
+		Integer n = TestDataGenerator.getInteger(MEDIUM_LIST_SIZE) + 1;
+		for (int i = 0; i < n; i++) {
+			CreateDocumentItem item = getCreateDocumentItem();
+			items.add(item);
+		}
+		return items;
+	}
+	
+	private static CreateDocumentItem getCreateDocumentItem() {
+		String name = TestDataGenerator.getProductName();
+		String desc = TestDataGenerator.getShortText();
+		Integer units = TestDataGenerator.getInteger(MAX_UNITS) + 1;
+		String sku = TestDataGenerator.getAlphaNumericId();
+		String serviceId = TestDataGenerator.getAlphaNumericId();
+		String accountingAccountId = TestDataGenerator.getAlphaNumericId();
+		BigDecimal subtotal = TestDataGenerator.getNumber();
+		BigDecimal discount = TestDataGenerator.getNumber();
+		BigDecimal tax = TestDataGenerator.getNumber();
+		BigDecimal retention = TestDataGenerator.getNumber();
+		BigDecimal equivalenceSurcharge = TestDataGenerator.getNumber();
+		List<String> tags = getTags();
+		return new CreateDocumentItem(name, desc, units, sku, serviceId, accountingAccountId, subtotal, discount, tax,
+				retention, equivalenceSurcharge, tags);
+	}
+
+	private static List<String> getTags() {
+		List<String> tags = new ArrayList<>();
+		Integer n = TestDataGenerator.getInteger(SHORT_LIST_SIZE) + 1;
+		for (int i = 0; i < n; i++) {
+			String tag = TestDataGenerator.getWord();
+			tags.add(tag);
+		}
+		return tags;
+	}
+	
+	private static List<DocumentCustomField> getCustomFields() {
 		List<DocumentCustomField> customFields = new ArrayList<>();
+		Integer n = TestDataGenerator.getInteger(SHORT_LIST_SIZE) + 1;
+		for (int i = 0; i < n; i++) {
+			DocumentCustomField customField = getCustomField();
+			customFields.add(customField);
+		}
+		return customFields;
+	}
+
+	private static DocumentCustomField getCustomField() {
+		String field = TestDataGenerator.getWord();
+		String value = String.valueOf(TestDataGenerator.getInteger(MAX_UNITS) + 1);
+		return new DocumentCustomField(field, value);
+	}
+
+	private static UpdateDocumentBodyParams getSalesOrderUpdateDocumentBodyParams() {
+		String desc = TestDataGenerator.getShortText();
+		String notes = TestDataGenerator.getShortText();
+		String language = TestDataGenerator.getLanguage();
+		Long date = TestDataGenerator.getPastDate();
+		List<UpdateDocumentItem> items = getUpdateDocumentItems();
+		String salesChannelId = TestDataGenerator.getAlphaNumericId();
+		String expAccountId = TestDataGenerator.getAlphaNumericId();
+		List<DocumentCustomField> customFields = getCustomFields();
 		return new UpdateDocumentBodyParams(desc, notes, language, date, items, salesChannelId, expAccountId, customFields);
+	}
+
+	private static List<UpdateDocumentItem> getUpdateDocumentItems() {
+		List<UpdateDocumentItem> items = new ArrayList<>();
+		Integer n = TestDataGenerator.getInteger(SHORT_LIST_SIZE) + 1;
+		for (int i = 0; i < n; i++) {
+			UpdateDocumentItem item = getUpdateDocumentItem();
+			items.add(item);
+		}
+		return items;
+	}
+
+	private static UpdateDocumentItem getUpdateDocumentItem() {
+		String name = TestDataGenerator.getProductName();
+		String desc = TestDataGenerator.getShortText();
+		BigDecimal subtotal = TestDataGenerator.getNumber();
+		BigDecimal tax = TestDataGenerator.getNumber();
+		List<String> tags = getTags();
+		Integer units = TestDataGenerator.getInteger(MAX_UNITS) + 1;
+		BigDecimal discount = TestDataGenerator.getNumber();
+		String kind = TestDataGenerator.getWord();
+		String sku = TestDataGenerator.getAlphaNumericId();
+		String lotSku = TestDataGenerator.getAlphaNumericId();
+		return new UpdateDocumentItem(name, desc, subtotal, tax, tags, units, discount, kind, sku, lotSku); 
 	}
 }

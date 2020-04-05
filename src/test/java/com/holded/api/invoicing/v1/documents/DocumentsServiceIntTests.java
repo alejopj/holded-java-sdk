@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import com.google.inject.Inject;
@@ -31,6 +32,24 @@ public class DocumentsServiceIntTests {
 	private Injector injector = GuiceTestInjector.getInstance();
 	@Inject
 	private DocumentsService documentsService;
+	
+	@Before
+	public void before() {
+		// TODO Configure so it is only executed in non-production environments.
+		if (false) {
+			for (DocumentType documentType : DocumentType.values()) {
+				
+				ListDocumentsQueryParams listDocumentsQueryParams = new ListDocumentsQueryParams(null, null, null, null, null);
+				List<Document> documents = documentsService.listDocuments(documentType, listDocumentsQueryParams);
+				
+				for (Document document : documents) {
+					// TODO Get id from document.
+					String documentId = "";
+					DeleteDocumentResponse deleteDocumentResponse = documentsService.deleteDocument(documentType, documentId);
+				}
+			}
+		}
+	}
 	
 	/**
 	 * Given a document is created
