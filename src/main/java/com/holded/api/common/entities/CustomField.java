@@ -1,15 +1,15 @@
-package com.holded.api.invoicing.v1.documents.entities;
+package com.holded.api.common.entities;
 
 import java.io.Serializable;
 
-public class DocumentCustomField implements Serializable {
+public class CustomField implements Serializable {
 
 	private static final long serialVersionUID = 4820702602674017896L;
 
 	private final String field;
 	private final String value;
 	
-	public DocumentCustomField(String field, String value) {
+	public CustomField(String field, String value) {
 		this.field = field;
 		this.value = value;
 	}

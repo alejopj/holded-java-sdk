@@ -1,4 +1,4 @@
-package com.holded.api.invoicing.v1.documents.entities;
+package com.holded.api.common.entities;
 
 import java.io.Serializable;
 
@@ -10,7 +10,6 @@ public class ServiceResponse implements Serializable {
 	private final String info;
 	
 	public ServiceResponse(ServiceResponseStatus status, String info) {
-		super();
 		this.status = status;
 		this.info = info;
 	}

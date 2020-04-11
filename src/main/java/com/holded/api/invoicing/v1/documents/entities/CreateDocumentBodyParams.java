@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
+import com.holded.api.common.entities.CustomField;
+import com.holded.api.common.entities.PaymentMethod;
+
 /**
  * - Matching products or services
  * To match products or services you have already created inside Holded, you can use the "sku" field for products,
@@ -31,11 +34,11 @@ public class CreateDocumentBodyParams implements Serializable {
 	private final Long date;
 	private final String notes;
 	private final String salesChannelId;
-	private final String paymentMethodId;
+	private final PaymentMethod paymentMethodId;
 	private final String designId;
 	private final String language;
 	private final List<CreateDocumentItem> items;
-	private final List<DocumentCustomField> customFields;
+	private final List<CustomField> customFields;
 	private final String invoiceNum;
 	private final String numSerieId;
 	private final String currency;
@@ -54,8 +57,8 @@ public class CreateDocumentBodyParams implements Serializable {
 	public CreateDocumentBodyParams(String contactCode, String contactName,
 			String contactEmail, String contactAddress, String contactCity, String contactPostalCode,
 			String contactProvince, String contactCountry, String contactCountryCode, String description, Long date,
-			String notes, String salesChannelId, String paymentMethodId, String designId, String language,
-			List<CreateDocumentItem> items, List<DocumentCustomField> customFields, String invoiceNum, String numSerieId,
+			String notes, String salesChannelId, PaymentMethod paymentMethodId, String designId, String language,
+			List<CreateDocumentItem> items, List<CustomField> customFields, String invoiceNum, String numSerieId,
 			String currency, BigDecimal currencyChange, List<String> tags, Long dueDate, String shippingAddress,
 			String shippingPostalCode, String shippingCity, String shippingProvince, String shippingCountry,
 			BigDecimal salesChannel) {
@@ -69,8 +72,8 @@ public class CreateDocumentBodyParams implements Serializable {
 	public CreateDocumentBodyParams(String contactCode, String contactName,
 			String contactEmail, String contactAddress, String contactCity, String contactPostalCode,
 			String contactProvince, String contactCountry, String contactCountryCode, String description, Long date,
-			String notes, String salesChannelId, String paymentMethodId, String designId, String language,
-			List<CreateDocumentItem> items, List<DocumentCustomField> customFields, String invoiceNum, String numSerieId,
+			String notes, String salesChannelId, PaymentMethod paymentMethodId, String designId, String language,
+			List<CreateDocumentItem> items, List<CustomField> customFields, String invoiceNum, String numSerieId,
 			String currency, BigDecimal currencyChange, List<String> tags, Long dueDate, String shippingAddress,
 			String shippingPostalCode, String shippingCity, String shippingProvince, String shippingCountry,
 			BigDecimal salesChannel, Boolean isReceipt) {
@@ -84,8 +87,8 @@ public class CreateDocumentBodyParams implements Serializable {
 	public CreateDocumentBodyParams(Boolean applyContactDefaults, String contactCode, String contactName,
 			String contactEmail, String contactAddress, String contactCity, String contactPostalCode,
 			String contactProvince, String contactCountry, String contactCountryCode, String description, Long date,
-			String notes, String salesChannelId, String paymentMethodId, String designId, String language,
-			List<CreateDocumentItem> items, List<DocumentCustomField> customFields, String invoiceNum, String numSerieId,
+			String notes, String salesChannelId, PaymentMethod paymentMethodId, String designId, String language,
+			List<CreateDocumentItem> items, List<CustomField> customFields, String invoiceNum, String numSerieId,
 			String currency, BigDecimal currencyChange, List<String> tags, Long dueDate, String shippingAddress,
 			String shippingPostalCode, String shippingCity, String shippingProvince, String shippingCountry,
 			BigDecimal salesChannel) {
@@ -99,8 +102,8 @@ public class CreateDocumentBodyParams implements Serializable {
 	public CreateDocumentBodyParams(Boolean applyContactDefaults, String contactCode, String contactName,
 			String contactEmail, String contactAddress, String contactCity, String contactCp,
 			String contactProvince, String contactCountry, String contactCountryCode, String desc, Long date,
-			String notes, String salesChannelId, String paymentMethodId, String designId, String language,
-			List<CreateDocumentItem> items, List<DocumentCustomField> customFields, String invoiceNum, String numSerieId,
+			String notes, String salesChannelId, PaymentMethod paymentMethodId, String designId, String language,
+			List<CreateDocumentItem> items, List<CustomField> customFields, String invoiceNum, String numSerieId,
 			String currency, BigDecimal currencyChange, List<String> tags, Long dueDate, String shippingAddress,
 			String shippingPostalCode, String shippingCity, String shippingProvince, String shippingCountry,
 			BigDecimal salesChannel, Boolean isReceipt) {
@@ -203,7 +206,7 @@ public class CreateDocumentBodyParams implements Serializable {
 		return salesChannelId;
 	}
 
-	public String getPaymentMethodId() {
+	public PaymentMethod getPaymentMethodId() {
 		return paymentMethodId;
 	}
 
@@ -219,7 +222,7 @@ public class CreateDocumentBodyParams implements Serializable {
 		return items;
 	}
 
-	public List<DocumentCustomField> getCustomFields() {
+	public List<CustomField> getCustomFields() {
 		return customFields;
 	}
 

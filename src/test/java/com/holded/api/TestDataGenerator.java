@@ -8,6 +8,7 @@ import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import com.github.javafaker.Faker;
+import com.holded.api.common.entities.PaymentMethod;
 
 public class TestDataGenerator {
 	
@@ -85,6 +86,14 @@ public class TestDataGenerator {
 
 	public static String getCountryCode() {
 		return FAKER.address().countryCode();
+	}
+	
+	// Payment method
+	
+	public static PaymentMethod getPaymentMethod() {
+		PaymentMethod[] paymentMethods = PaymentMethod.values();
+		int i = FAKER.random().nextInt(paymentMethods.length);
+		return paymentMethods[i];
 	}
 	
 	// Text

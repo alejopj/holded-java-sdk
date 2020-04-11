@@ -3,6 +3,8 @@ package com.holded.api.invoicing.v1.documents.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import com.holded.api.common.entities.CustomField;
+
 public class UpdateDocumentBodyParams implements Serializable {
 
 	private static final long serialVersionUID = -1539512848118503386L;
@@ -14,11 +16,11 @@ public class UpdateDocumentBodyParams implements Serializable {
 	private final List<UpdateDocumentItem> items;
 	private final String salesChannelId;
 	private final String expAccountId;
-	private final List<DocumentCustomField> customFields;
+	private final List<CustomField> customFields;
 	
 	public UpdateDocumentBodyParams(String desc, String notes, String language, Long date,
 			List<UpdateDocumentItem> items, String salesChannelId, String expAccountId,
-			List<DocumentCustomField> customFields) {
+			List<CustomField> customFields) {
 		this.desc = desc;
 		this.notes = notes;
 		this.language = language;
@@ -57,7 +59,7 @@ public class UpdateDocumentBodyParams implements Serializable {
 		return expAccountId;
 	}
 
-	public List<DocumentCustomField> getCustomFields() {
+	public List<CustomField> getCustomFields() {
 		return customFields;
 	}
 }

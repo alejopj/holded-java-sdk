@@ -1,4 +1,4 @@
-package com.holded.api.invoicing.v1.documents.entities;
+package com.holded.api.common.entities;
 
 public enum ServiceResponseStatus {
 	OK(1),

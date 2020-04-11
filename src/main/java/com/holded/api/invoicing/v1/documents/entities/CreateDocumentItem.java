@@ -24,7 +24,6 @@ public class CreateDocumentItem implements Serializable {
 	public CreateDocumentItem(String name, String desc, Integer units, String sku, String serviceId,
 			String accountingAccountId, BigDecimal subtotal, BigDecimal discount, BigDecimal tax, BigDecimal retention,
 			BigDecimal equivalenceSurcharge, List<String> tags) {
-		super();
 		this.name = name;
 		this.desc = desc;
 		this.units = units;

@@ -6,10 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.holded.api.TestDataGenerator;
+import com.holded.api.common.entities.CustomField;
+import com.holded.api.common.entities.PaymentMethod;
 import com.holded.api.invoicing.v1.documents.entities.AttachFileToDocumentFormData;
 import com.holded.api.invoicing.v1.documents.entities.CreateDocumentBodyParams;
 import com.holded.api.invoicing.v1.documents.entities.CreateDocumentItem;
-import com.holded.api.invoicing.v1.documents.entities.DocumentCustomField;
 import com.holded.api.invoicing.v1.documents.entities.DocumentType;
 import com.holded.api.invoicing.v1.documents.entities.SalesOrderShippedItem;
 import com.holded.api.invoicing.v1.documents.entities.SendDocumentBodyParams;
@@ -118,11 +119,11 @@ public class DocumentsServiceTestUtils {
 		Long date = TestDataGenerator.getPastDate();
 		String notes = TestDataGenerator.getShortText();
 		String salesChannelId = TestDataGenerator.getAlphaNumericId();
-		String paymentMethodId = TestDataGenerator.getAlphaNumericId();
+		PaymentMethod paymentMethodId = TestDataGenerator.getPaymentMethod();
 		String designId = TestDataGenerator.getAlphaNumericId();
 		String language = TestDataGenerator.getLanguage();
 		List<CreateDocumentItem> items = getCreateDocumentItems();
-		List<DocumentCustomField> customFields = getCustomFields();
+		List<CustomField> customFields = getCustomFields();
 		String invoiceNum = TestDataGenerator.getAlphaNumericId();
 		String numSerieId = TestDataGenerator.getAlphaNumericId();
 		String currency = TestDataGenerator.getCurrency();
@@ -182,20 +183,20 @@ public class DocumentsServiceTestUtils {
 		return tags;
 	}
 	
-	private static List<DocumentCustomField> getCustomFields() {
-		List<DocumentCustomField> customFields = new ArrayList<>();
+	private static List<CustomField> getCustomFields() {
+		List<CustomField> customFields = new ArrayList<>();
 		Integer n = TestDataGenerator.getInteger(SHORT_LIST_SIZE) + 1;
 		for (int i = 0; i < n; i++) {
-			DocumentCustomField customField = getCustomField();
+			CustomField customField = getCustomField();
 			customFields.add(customField);
 		}
 		return customFields;
 	}
 
-	private static DocumentCustomField getCustomField() {
+	private static CustomField getCustomField() {
 		String field = TestDataGenerator.getWord();
 		String value = String.valueOf(TestDataGenerator.getInteger(MAX_UNITS) + 1);
-		return new DocumentCustomField(field, value);
+		return new CustomField(field, value);
 	}
 
 	private static UpdateDocumentBodyParams getSalesOrderUpdateDocumentBodyParams() {
@@ -206,7 +207,7 @@ public class DocumentsServiceTestUtils {
 		List<UpdateDocumentItem> items = getUpdateDocumentItems();
 		String salesChannelId = TestDataGenerator.getAlphaNumericId();
 		String expAccountId = TestDataGenerator.getAlphaNumericId();
-		List<DocumentCustomField> customFields = getCustomFields();
+		List<CustomField> customFields = getCustomFields();
 		return new UpdateDocumentBodyParams(desc, notes, language, date, items, salesChannelId, expAccountId, customFields);
 	}
 

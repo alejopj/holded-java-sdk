@@ -36,9 +36,8 @@ public interface DocumentsService {
 	 * @param docType Required. docType should be one of: {invoice, salesreceipt, creditnote, salesorder, proform,
 	 * waybill, estimate, purchase, purchaseorder or purchaserefund}.
 	 * @param queryParams Query parameters.
-	 * @return Response.
+	 * @return Documents.
 	 */
-	// TODO Not declared. Define from API's response.
 	List<Document> listDocuments(DocumentType docType, ListDocumentsQueryParams queryParams);
 	
 	/**
@@ -56,7 +55,6 @@ public interface DocumentsService {
 	 * @param documentId Required. Document id.
 	 * @return Document.
 	 */
-	// TODO Not declared. Define from API's response.
 	Document getDocument(DocumentType docType, String documentId);
 	
 	/**

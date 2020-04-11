@@ -2,6 +2,9 @@ package com.holded.api.invoicing.v1.documents.entities;
 
 import java.io.Serializable;
 
+import com.holded.api.common.entities.ServiceResponse;
+import com.holded.api.common.entities.ServiceResponseStatus;
+
 public class CreateDocumentResponse extends ServiceResponse implements Serializable {
 
 	private static final long serialVersionUID = -7118613196990755760L;
