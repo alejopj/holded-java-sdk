@@ -121,8 +121,8 @@ public class DocumentsServiceIntTests {
 		assertEquals(ServiceResponseStatus.OK, createDocumentResponse.getStatus());
 		
 		String documentId = createDocumentResponse.getId();
-		UpdateDocumentBodyParams bodyParams = DocumentsServiceTestUtils.getUpdateDocumentBodyParams(documentType);
-		UpdateDocumentResponse updateDocumentResponse = documentsService.updateDocument(documentType, documentId, bodyParams);
+		UpdateDocumentBodyParams updateDocumentBodyParams = DocumentsServiceTestUtils.getUpdateDocumentBodyParams(documentType);
+		UpdateDocumentResponse updateDocumentResponse = documentsService.updateDocument(documentType, documentId, updateDocumentBodyParams);
 		
 		assertEquals(ServiceResponseStatus.OK, updateDocumentResponse.getStatus());
 		
