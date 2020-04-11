@@ -35,18 +35,16 @@ public class DocumentsServiceIntTests {
 	
 	@Before
 	public void before() {
-		// TODO Configure so it is only executed in non-production environments.
-		if (false) {
-			for (DocumentType documentType : DocumentType.values()) {
-				
-				ListDocumentsQueryParams listDocumentsQueryParams = new ListDocumentsQueryParams(null, null, null, null, null);
-				List<Document> documents = documentsService.listDocuments(documentType, listDocumentsQueryParams);
-				
-				for (Document document : documents) {
-					// TODO Get id from document.
-					String documentId = "";
-					DeleteDocumentResponse deleteDocumentResponse = documentsService.deleteDocument(documentType, documentId);
-				}
+		
+		for (DocumentType documentType : DocumentType.values()) {
+			
+			ListDocumentsQueryParams listDocumentsQueryParams = new ListDocumentsQueryParams(null, null, null, null, null);
+			List<Document> documents = documentsService.listDocuments(documentType, listDocumentsQueryParams);
+			
+			for (Document document : documents) {
+				// TODO Get id from document.
+				String documentId = "";
+				DeleteDocumentResponse deleteDocumentResponse = documentsService.deleteDocument(documentType, documentId);
 			}
 		}
 	}
