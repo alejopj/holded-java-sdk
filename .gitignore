@@ -33,3 +33,6 @@ hs_err_pid*
 
 # Compiled files path
 /target/
+
+# API key files
+apikey.properties
