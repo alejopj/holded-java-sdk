@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import com.holded.api.common.entities.CustomField;
+import com.holded.api.common.entities.Language;
 import com.holded.api.common.entities.PaymentMethod;
 
 /**
@@ -36,7 +37,7 @@ public class CreateDocumentBodyParams implements Serializable {
 	private final String salesChannelId;
 	private final PaymentMethod paymentMethodId;
 	private final String designId;
-	private final String language;
+	private final Language language;
 	private final List<CreateDocumentItem> items;
 	private final List<CustomField> customFields;
 	private final String invoiceNum;
@@ -57,7 +58,7 @@ public class CreateDocumentBodyParams implements Serializable {
 	public CreateDocumentBodyParams(String contactCode, String contactName,
 			String contactEmail, String contactAddress, String contactCity, String contactPostalCode,
 			String contactProvince, String contactCountry, String contactCountryCode, String description, Long date,
-			String notes, String salesChannelId, PaymentMethod paymentMethodId, String designId, String language,
+			String notes, String salesChannelId, PaymentMethod paymentMethodId, String designId, Language language,
 			List<CreateDocumentItem> items, List<CustomField> customFields, String invoiceNum, String numSerieId,
 			String currency, BigDecimal currencyChange, List<String> tags, Long dueDate, String shippingAddress,
 			String shippingPostalCode, String shippingCity, String shippingProvince, String shippingCountry,
@@ -72,7 +73,7 @@ public class CreateDocumentBodyParams implements Serializable {
 	public CreateDocumentBodyParams(String contactCode, String contactName,
 			String contactEmail, String contactAddress, String contactCity, String contactPostalCode,
 			String contactProvince, String contactCountry, String contactCountryCode, String description, Long date,
-			String notes, String salesChannelId, PaymentMethod paymentMethodId, String designId, String language,
+			String notes, String salesChannelId, PaymentMethod paymentMethodId, String designId, Language language,
 			List<CreateDocumentItem> items, List<CustomField> customFields, String invoiceNum, String numSerieId,
 			String currency, BigDecimal currencyChange, List<String> tags, Long dueDate, String shippingAddress,
 			String shippingPostalCode, String shippingCity, String shippingProvince, String shippingCountry,
@@ -87,7 +88,7 @@ public class CreateDocumentBodyParams implements Serializable {
 	public CreateDocumentBodyParams(Boolean applyContactDefaults, String contactCode, String contactName,
 			String contactEmail, String contactAddress, String contactCity, String contactPostalCode,
 			String contactProvince, String contactCountry, String contactCountryCode, String description, Long date,
-			String notes, String salesChannelId, PaymentMethod paymentMethodId, String designId, String language,
+			String notes, String salesChannelId, PaymentMethod paymentMethodId, String designId, Language language,
 			List<CreateDocumentItem> items, List<CustomField> customFields, String invoiceNum, String numSerieId,
 			String currency, BigDecimal currencyChange, List<String> tags, Long dueDate, String shippingAddress,
 			String shippingPostalCode, String shippingCity, String shippingProvince, String shippingCountry,
@@ -102,7 +103,7 @@ public class CreateDocumentBodyParams implements Serializable {
 	public CreateDocumentBodyParams(Boolean applyContactDefaults, String contactCode, String contactName,
 			String contactEmail, String contactAddress, String contactCity, String contactCp,
 			String contactProvince, String contactCountry, String contactCountryCode, String desc, Long date,
-			String notes, String salesChannelId, PaymentMethod paymentMethodId, String designId, String language,
+			String notes, String salesChannelId, PaymentMethod paymentMethodId, String designId, Language language,
 			List<CreateDocumentItem> items, List<CustomField> customFields, String invoiceNum, String numSerieId,
 			String currency, BigDecimal currencyChange, List<String> tags, Long dueDate, String shippingAddress,
 			String shippingPostalCode, String shippingCity, String shippingProvince, String shippingCountry,
@@ -214,7 +215,7 @@ public class CreateDocumentBodyParams implements Serializable {
 		return designId;
 	}
 
-	public String getLanguage() {
+	public Language getLanguage() {
 		return language;
 	}
 

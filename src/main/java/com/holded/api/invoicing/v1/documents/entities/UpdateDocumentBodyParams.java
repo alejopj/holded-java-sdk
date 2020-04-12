@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import com.holded.api.common.entities.CustomField;
+import com.holded.api.common.entities.Language;
 
 public class UpdateDocumentBodyParams implements Serializable {
 
@@ -11,14 +12,14 @@ public class UpdateDocumentBodyParams implements Serializable {
 	
 	private final String desc;
 	private final String notes;
-	private final String language;
+	private final Language language;
 	private final Long date;
 	private final List<UpdateDocumentItem> items;
 	private final String salesChannelId;
 	private final String expAccountId;
 	private final List<CustomField> customFields;
 	
-	public UpdateDocumentBodyParams(String desc, String notes, String language, Long date,
+	public UpdateDocumentBodyParams(String desc, String notes, Language language, Long date,
 			List<UpdateDocumentItem> items, String salesChannelId, String expAccountId,
 			List<CustomField> customFields) {
 		this.desc = desc;
@@ -39,7 +40,7 @@ public class UpdateDocumentBodyParams implements Serializable {
 		return notes;
 	}
 
-	public String getLanguage() {
+	public Language getLanguage() {
 		return language;
 	}
 

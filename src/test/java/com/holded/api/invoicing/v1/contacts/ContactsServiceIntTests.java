@@ -43,7 +43,12 @@ public class ContactsServiceIntTests {
 	@Test
 	public void listContacts() {
 		
-		CreateContactBodyParams createContactBodyParams = ContactsServiceTestUtils.getCreateContactBodyParams();
+		// TODO Get random values from the API.
+		String contactGroupId = null;
+		Long clientRecord = null;
+		Long supplierRecord = null;
+		CreateContactBodyParams createContactBodyParams =
+				ContactsServiceTestUtils.getCreateContactBodyParams(contactGroupId, clientRecord, supplierRecord);
 		CreateContactResponse createContactResponse = contactsService.createContact(createContactBodyParams);
 		
 		assertEquals(ServiceResponseStatus.OK, createContactResponse.getStatus());
@@ -61,7 +66,12 @@ public class ContactsServiceIntTests {
 	@Test
 	public void createContact() {
 		
-		CreateContactBodyParams createContactBodyParams = ContactsServiceTestUtils.getCreateContactBodyParams();
+		// TODO Get random values from the API.
+		String contactGroupId = null;
+		Long clientRecord = null;
+		Long supplierRecord = null;
+		CreateContactBodyParams createContactBodyParams =
+				ContactsServiceTestUtils.getCreateContactBodyParams(contactGroupId, clientRecord, supplierRecord);
 		CreateContactResponse createContactResponse = contactsService.createContact(createContactBodyParams);
 		
 		assertEquals(ServiceResponseStatus.OK, createContactResponse.getStatus());
@@ -75,7 +85,12 @@ public class ContactsServiceIntTests {
 	@Test
 	public void getContact() {
 		
-		CreateContactBodyParams createContactBodyParams = ContactsServiceTestUtils.getCreateContactBodyParams();
+		// TODO Get random values from the API.
+		String contactGroupId = null;
+		Long clientRecord = null;
+		Long supplierRecord = null;
+		CreateContactBodyParams createContactBodyParams =
+				ContactsServiceTestUtils.getCreateContactBodyParams(contactGroupId, clientRecord, supplierRecord);
 		CreateContactResponse createContactResponse = contactsService.createContact(createContactBodyParams);
 		
 		assertEquals(ServiceResponseStatus.OK, createContactResponse.getStatus());
@@ -95,13 +110,19 @@ public class ContactsServiceIntTests {
 	@Test
 	public void updateContact() {
 		
-		CreateContactBodyParams createContactBodyParams = ContactsServiceTestUtils.getCreateContactBodyParams();
+		// TODO Get random values from the API.
+		String contactGroupId = null;
+		Long clientRecord = null;
+		Long supplierRecord = null;
+		CreateContactBodyParams createContactBodyParams =
+				ContactsServiceTestUtils.getCreateContactBodyParams(contactGroupId, clientRecord, supplierRecord);
 		CreateContactResponse createContactResponse = contactsService.createContact(createContactBodyParams);
 		
 		assertEquals(ServiceResponseStatus.OK, createContactResponse.getStatus());
 		
 		String contactId = createContactResponse.getId();
-		UpdateContactBodyParams updateContactBodyParams = ContactsServiceTestUtils.getUpdateContactBodyParams();
+		UpdateContactBodyParams updateContactBodyParams =
+				ContactsServiceTestUtils.getUpdateContactBodyParams(contactGroupId, clientRecord, supplierRecord);
 		UpdateContactResponse updateContactResponse = contactsService.updateContact(contactId, updateContactBodyParams);
 		
 		assertEquals(ServiceResponseStatus.OK, updateContactResponse.getStatus());
@@ -121,7 +142,12 @@ public class ContactsServiceIntTests {
 	@Test
 	public void deleteContact() {
 		
-		CreateContactBodyParams createContactBodyParams = ContactsServiceTestUtils.getCreateContactBodyParams();
+		// TODO Get random values from the API.
+		String contactGroupId = null;
+		Long clientRecord = null;
+		Long supplierRecord = null;
+		CreateContactBodyParams createContactBodyParams =
+				ContactsServiceTestUtils.getCreateContactBodyParams(contactGroupId, clientRecord, supplierRecord);
 		CreateContactResponse createContactResponse = contactsService.createContact(createContactBodyParams);
 		
 		assertEquals(ServiceResponseStatus.OK, createContactResponse.getStatus());

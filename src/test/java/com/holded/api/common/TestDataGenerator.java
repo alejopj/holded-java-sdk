@@ -1,14 +1,16 @@
-package com.holded.api;
+package com.holded.api.common;
 
 import java.io.File;
 import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import com.github.javafaker.Faker;
+import com.holded.api.common.entities.Language;
 import com.holded.api.common.entities.PaymentMethod;
+import com.holded.api.invoicing.v1.contacts.entities.ContactTaxOperation;
+import com.holded.api.invoicing.v1.contacts.entities.ContactType;
 
 public class TestDataGenerator {
 	
@@ -18,6 +20,10 @@ public class TestDataGenerator {
 
 	public static String getAlphaNumericId() {
 		return FAKER.internet().uuid();
+	}
+	
+	public static Long getLongId() {
+		return FAKER.random().nextLong();
 	}
 	
 	// Email
@@ -32,6 +38,22 @@ public class TestDataGenerator {
 	
 	public static String getEmailMessage() {
 		return FAKER.lorem().sentence();
+	}
+	
+	// Website
+	
+	public static String getWebsite() {
+		return FAKER.internet().domainName();
+	}
+	
+	// Phone
+	
+	public static String getPhone() {
+		return FAKER.phoneNumber().phoneNumber();
+	}
+	
+	public static String getCellPhone() {
+		return FAKER.phoneNumber().cellPhone();
 	}
 	
 	// File
@@ -63,6 +85,20 @@ public class TestDataGenerator {
 	public static String getContactName() {
 		return FAKER.name().fullName();
 	}
+	
+	public static ContactType getContactType() {
+		ContactType[] contactTypes = ContactType.values();
+		int i = FAKER.random().nextInt(contactTypes.length);
+		return contactTypes[i];
+	}
+	
+	public static ContactTaxOperation getContactTaxOperation() {
+		ContactTaxOperation[] contactTaxOperations = ContactTaxOperation.values();
+		int i = FAKER.random().nextInt(contactTaxOperations.length);
+		return contactTaxOperations[i];
+	}
+	
+	// Address
 
 	public static String getAddress() {
 		return FAKER.address().streetAddress();
@@ -74,6 +110,10 @@ public class TestDataGenerator {
 
 	public static String getPostalCode() {
 		return FAKER.address().zipCode();
+	}
+	
+	public static Integer getIntegerPostalCode() {
+		return getInteger((100000) + 10000) % 100000;
 	}
 
 	public static String getProvince() {
@@ -94,6 +134,20 @@ public class TestDataGenerator {
 		PaymentMethod[] paymentMethods = PaymentMethod.values();
 		int i = FAKER.random().nextInt(paymentMethods.length);
 		return paymentMethods[i];
+	}
+	
+	// Bank account
+	
+	public static String getIban() {
+		return FAKER.finance().iban();
+	}
+	
+	public static String getSwift() {
+		return FAKER.finance().bic() + FAKER.finance().iban();
+	}
+	
+	public static String getSepaReferenceNumber() {
+		return FAKER.bothify("[A-Z0-9]{35}");
 	}
 	
 	// Text
@@ -118,10 +172,10 @@ public class TestDataGenerator {
 
 	// Language
 	
-	public static String getLanguage() {
-		Locale[] availableLocales = Locale.getAvailableLocales();
-		int i = FAKER.random().nextInt(availableLocales.length);
-		return availableLocales[i].toLanguageTag();
+	public static Language getLanguage() {
+		Language[] availableLanguages = Language.values();
+		int i = FAKER.random().nextInt(availableLanguages.length);
+		return availableLanguages[i];
 	}
 	
 	// Currency
@@ -135,6 +189,10 @@ public class TestDataGenerator {
 	}
 	
 	// Number
+	
+	public static Integer getPercentage() {
+		return getInteger(100);
+	}
 	
 	public static Integer getInteger(int n) {
 		return FAKER.random().nextInt(n);

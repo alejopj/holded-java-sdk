@@ -5,8 +5,10 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.holded.api.TestDataGenerator;
+import com.holded.api.common.CommonTestUtils;
+import com.holded.api.common.TestDataGenerator;
 import com.holded.api.common.entities.CustomField;
+import com.holded.api.common.entities.Language;
 import com.holded.api.common.entities.PaymentMethod;
 import com.holded.api.invoicing.v1.documents.entities.AttachFileToDocumentFormData;
 import com.holded.api.invoicing.v1.documents.entities.CreateDocumentBodyParams;
@@ -20,10 +22,6 @@ import com.holded.api.invoicing.v1.documents.entities.UpdateDocumentItem;
 
 public class DocumentsServiceTestUtils {
 	
-	private static Integer SHORT_LIST_SIZE = 5;
-	private static Integer MEDIUM_LIST_SIZE = 10;
-	private static Integer MAX_UNITS = 10;
-
 	public static CreateDocumentBodyParams getCreateDocumentBodyParams(DocumentType documentType) {
 		switch (documentType) {
 		case CREDIT_NOTE:
@@ -121,14 +119,14 @@ public class DocumentsServiceTestUtils {
 		String salesChannelId = TestDataGenerator.getAlphaNumericId();
 		PaymentMethod paymentMethodId = TestDataGenerator.getPaymentMethod();
 		String designId = TestDataGenerator.getAlphaNumericId();
-		String language = TestDataGenerator.getLanguage();
+		Language language = TestDataGenerator.getLanguage();
 		List<CreateDocumentItem> items = getCreateDocumentItems();
-		List<CustomField> customFields = getCustomFields();
+		List<CustomField> customFields = CommonTestUtils.getCustomFields();
 		String invoiceNum = TestDataGenerator.getAlphaNumericId();
 		String numSerieId = TestDataGenerator.getAlphaNumericId();
 		String currency = TestDataGenerator.getCurrency();
 		BigDecimal currencyChange = TestDataGenerator.getCurrencyExchangeRate();
-		List<String> tags = getTags();
+		List<String> tags = CommonTestUtils.getTags();
 		Long dueDate = TestDataGenerator.getFutureDate();
 		String shippingAddress = TestDataGenerator.getAddress();
 		String shippingPostalCode = TestDataGenerator.getPostalCode();
@@ -148,7 +146,7 @@ public class DocumentsServiceTestUtils {
 
 	private static List<CreateDocumentItem> getCreateDocumentItems() {
 		List<CreateDocumentItem> items = new ArrayList<>();
-		Integer n = TestDataGenerator.getInteger(MEDIUM_LIST_SIZE) + 1;
+		Integer n = TestDataGenerator.getInteger(CommonTestUtils.MEDIUM_LIST_SIZE) + 1;
 		for (int i = 0; i < n; i++) {
 			CreateDocumentItem item = getCreateDocumentItem();
 			items.add(item);
@@ -159,7 +157,7 @@ public class DocumentsServiceTestUtils {
 	private static CreateDocumentItem getCreateDocumentItem() {
 		String name = TestDataGenerator.getProductName();
 		String desc = TestDataGenerator.getShortText();
-		Integer units = TestDataGenerator.getInteger(MAX_UNITS) + 1;
+		Integer units = TestDataGenerator.getInteger(CommonTestUtils.MAX_UNITS) + 1;
 		String sku = TestDataGenerator.getAlphaNumericId();
 		String serviceId = TestDataGenerator.getAlphaNumericId();
 		String accountingAccountId = TestDataGenerator.getAlphaNumericId();
@@ -168,52 +166,26 @@ public class DocumentsServiceTestUtils {
 		BigDecimal tax = TestDataGenerator.getNumber();
 		BigDecimal retention = TestDataGenerator.getNumber();
 		BigDecimal equivalenceSurcharge = TestDataGenerator.getNumber();
-		List<String> tags = getTags();
+		List<String> tags = CommonTestUtils.getTags();
 		return new CreateDocumentItem(name, desc, units, sku, serviceId, accountingAccountId, subtotal, discount, tax,
 				retention, equivalenceSurcharge, tags);
-	}
-
-	private static List<String> getTags() {
-		List<String> tags = new ArrayList<>();
-		Integer n = TestDataGenerator.getInteger(SHORT_LIST_SIZE) + 1;
-		for (int i = 0; i < n; i++) {
-			String tag = TestDataGenerator.getWord();
-			tags.add(tag);
-		}
-		return tags;
-	}
-	
-	private static List<CustomField> getCustomFields() {
-		List<CustomField> customFields = new ArrayList<>();
-		Integer n = TestDataGenerator.getInteger(SHORT_LIST_SIZE) + 1;
-		for (int i = 0; i < n; i++) {
-			CustomField customField = getCustomField();
-			customFields.add(customField);
-		}
-		return customFields;
-	}
-
-	private static CustomField getCustomField() {
-		String field = TestDataGenerator.getWord();
-		String value = String.valueOf(TestDataGenerator.getInteger(MAX_UNITS) + 1);
-		return new CustomField(field, value);
 	}
 
 	private static UpdateDocumentBodyParams getSalesOrderUpdateDocumentBodyParams() {
 		String desc = TestDataGenerator.getShortText();
 		String notes = TestDataGenerator.getShortText();
-		String language = TestDataGenerator.getLanguage();
+		Language language = TestDataGenerator.getLanguage();
 		Long date = TestDataGenerator.getPastDate();
 		List<UpdateDocumentItem> items = getUpdateDocumentItems();
 		String salesChannelId = TestDataGenerator.getAlphaNumericId();
 		String expAccountId = TestDataGenerator.getAlphaNumericId();
-		List<CustomField> customFields = getCustomFields();
+		List<CustomField> customFields = CommonTestUtils.getCustomFields();
 		return new UpdateDocumentBodyParams(desc, notes, language, date, items, salesChannelId, expAccountId, customFields);
 	}
 
 	private static List<UpdateDocumentItem> getUpdateDocumentItems() {
 		List<UpdateDocumentItem> items = new ArrayList<>();
-		Integer n = TestDataGenerator.getInteger(SHORT_LIST_SIZE) + 1;
+		Integer n = TestDataGenerator.getInteger(CommonTestUtils.SHORT_LIST_SIZE) + 1;
 		for (int i = 0; i < n; i++) {
 			UpdateDocumentItem item = getUpdateDocumentItem();
 			items.add(item);
@@ -226,8 +198,8 @@ public class DocumentsServiceTestUtils {
 		String desc = TestDataGenerator.getShortText();
 		BigDecimal subtotal = TestDataGenerator.getNumber();
 		BigDecimal tax = TestDataGenerator.getNumber();
-		List<String> tags = getTags();
-		Integer units = TestDataGenerator.getInteger(MAX_UNITS) + 1;
+		List<String> tags = CommonTestUtils.getTags();
+		Integer units = TestDataGenerator.getInteger(CommonTestUtils.MAX_UNITS) + 1;
 		BigDecimal discount = TestDataGenerator.getNumber();
 		String kind = TestDataGenerator.getWord();
 		String sku = TestDataGenerator.getAlphaNumericId();
