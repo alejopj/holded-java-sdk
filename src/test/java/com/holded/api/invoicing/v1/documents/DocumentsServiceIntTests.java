@@ -7,7 +7,6 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.holded.api.GuiceTestInjector;
 import com.holded.api.common.entities.ServiceResponseStatus;
@@ -30,8 +29,7 @@ import com.holded.api.invoicing.v1.documents.entities.UpdateDocumentResponse;
 public class DocumentsServiceIntTests {
 
 	private Injector injector = GuiceTestInjector.getInstance();
-	@Inject
-	private DocumentsService documentsService;
+	private DocumentsService documentsService = injector.getInstance(DocumentsService.class);
 	
 	@Before
 	public void before() {

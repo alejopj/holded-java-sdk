@@ -20,6 +20,7 @@ public class Contact implements Serializable {
 	private final ContactType type;
 	private final String iban;
 	private final String swift;
+	private final String groupId;
 	private final Long clientRecord;
 	private final Long supplierRecord;
 	private final BillingAddress billAddress;
@@ -32,10 +33,10 @@ public class Contact implements Serializable {
 	private final List<CustomField> customFields;
 	
 	public Contact(String id, String customId, String name, String code, String tradeName, String email, String mobile,
-			String phone, ContactType type, String iban, String swift, Long clientRecord, Long supplierRecord,
-			BillingAddress billAddress, ContactDefaults defaults, ContactSocialNetworks socialNetworks,
-			List<String> tags, List<ContactNote> notes, List<ContactPerson> contactPersons,
-			List<ShippingAddress> shippingAddresses, List<CustomField> customFields) {
+			String phone, ContactType type, String iban, String swift, String groupId, Long clientRecord,
+			Long supplierRecord, BillingAddress billAddress, ContactDefaults defaults,
+			ContactSocialNetworks socialNetworks, List<String> tags, List<ContactNote> notes,
+			List<ContactPerson> contactPersons, List<ShippingAddress> shippingAddresses, List<CustomField> customFields) {
 		this.id = id;
 		this.customId = customId;
 		this.name = name;
@@ -47,6 +48,7 @@ public class Contact implements Serializable {
 		this.type = type;
 		this.iban = iban;
 		this.swift = swift;
+		this.groupId = groupId;
 		this.clientRecord = clientRecord;
 		this.supplierRecord = supplierRecord;
 		this.billAddress = billAddress;
@@ -101,6 +103,10 @@ public class Contact implements Serializable {
 
 	public String getSwift() {
 		return swift;
+	}
+	
+	public String getGroupId() {
+		return groupId;
 	}
 
 	public Long getClientRecord() {

@@ -16,12 +16,12 @@ public class ContactDefaults implements Serializable {
 	private final PaymentMethod paymentMethod;
 	private final Integer discount;
 	private final Language language;
-	private final Currency currency;
+	private final String currency;
 	private final ContactTaxType tax;
 	private final ContactRetentionType retention;
 	
 	public ContactDefaults(Long salesChannel, Long expensesAccount, Integer dueDays, PaymentMethod paymentMethod,
-			Integer discount, Language language, Currency currency, ContactTaxType tax, ContactRetentionType retention) {
+			Integer discount, Language language, String currency, ContactTaxType tax, ContactRetentionType retention) {
 		this.salesChannel = salesChannel;
 		this.expensesAccount = expensesAccount;
 		this.dueDays = dueDays;
@@ -48,7 +48,7 @@ public class ContactDefaults implements Serializable {
 	public PaymentMethod getPaymentMethod() {
 		return paymentMethod;
 	}
-
+	
 	public Integer getDiscount() {
 		return discount;
 	}
@@ -56,11 +56,11 @@ public class ContactDefaults implements Serializable {
 	public Language getLanguage() {
 		return language;
 	}
-
+	
 	public Currency getCurrency() {
-		return currency;
+		return Currency.getInstance(currency);
 	}
-
+	
 	public ContactTaxType getTax() {
 		return tax;
 	}

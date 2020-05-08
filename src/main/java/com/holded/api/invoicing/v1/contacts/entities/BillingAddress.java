@@ -6,14 +6,18 @@ public class BillingAddress implements Serializable {
 
 	private static final long serialVersionUID = 5709056675534912494L;
 	
-	private final String address;
-	private final String city;
-	private final Integer postalCode;
-	private final String province;
-	private final String country;
-	private final String countryCode;
-	private final String info;
+	private String address;
+	private String city;
+	private Integer postalCode;
+	private String province;
+	private String country;
+	private String countryCode;
+	private String info;
 
+	public BillingAddress() {
+		
+	}
+	
 	public BillingAddress(String address, String city, Integer postalCode, String province, String country,
 			String countryCode, String info) {
 		this.address = address;
