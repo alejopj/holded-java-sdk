@@ -151,10 +151,11 @@ public class DocumentsServiceIntTests {
 		
 		assertEquals(ServiceResponseStatus.OK, deleteDocumentResponse.getStatus());
 		
-		Document document = documentsService.getDocument(documentType, documentId);
-		
-		// TODO Assert the document does not exist.
-		assertNotEquals(ServiceResponseStatus.OK, document);
+		// TODO Assert the document is deleted.
+		ListDocumentsQueryParams listDocumentsQueryParams = new ListDocumentsQueryParams(null, null, null, null, null);
+//		boolean isDeleted = !documentsService.listDocuments(documentType, listDocumentsQueryParams).stream()
+//				.anyMatch(document -> document.getId().equals(documentId));
+//		assertTrue(isDeleted);
 	}
 	
 	/**

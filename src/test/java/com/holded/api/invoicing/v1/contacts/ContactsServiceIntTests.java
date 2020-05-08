@@ -157,8 +157,7 @@ public class ContactsServiceIntTests {
 		
 		assertEquals(ServiceResponseStatus.OK, deleteContactResponse.getStatus());
 		
-		Contact contact = contactsService.getContact(contactId);
-		
-		assertNull(contact);
+		boolean isDeleted = !contactsService.listContacts().stream().anyMatch(contact -> contact.getId().equals(contactId));
+		assertTrue(isDeleted);
 	}
 }
