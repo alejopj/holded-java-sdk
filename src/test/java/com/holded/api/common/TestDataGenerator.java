@@ -19,7 +19,7 @@ public class TestDataGenerator {
 	// Id
 
 	public static String getAlphaNumericId() {
-		return FAKER.internet().uuid();
+		return FAKER.internet().uuid().replace("-", "");
 	}
 	
 	public static Long getLongId() {
@@ -49,11 +49,11 @@ public class TestDataGenerator {
 	// Phone
 	
 	public static String getPhone() {
-		return FAKER.phoneNumber().phoneNumber();
+		return "9" + FAKER.regexify("[0-9]{8}");
 	}
 	
 	public static String getCellPhone() {
-		return FAKER.phoneNumber().cellPhone();
+		return "6" + FAKER.regexify("[0-9]{8}");
 	}
 	
 	// File
@@ -79,7 +79,7 @@ public class TestDataGenerator {
 	// Contact
 	
 	public static String getContactCode() {
-		return FAKER.idNumber().ssnValid();
+		return FAKER.idNumber().ssnValid().replace("-", "");
 	}
 
 	public static String getContactName() {
@@ -147,7 +147,7 @@ public class TestDataGenerator {
 	}
 	
 	public static String getSepaReferenceNumber() {
-		return FAKER.bothify("[A-Z0-9]{35}");
+		return FAKER.regexify("[A-Z0-9]{35}");
 	}
 	
 	// Text

@@ -14,10 +14,6 @@ public class BillingAddress implements Serializable {
 	private String countryCode;
 	private String info;
 
-	public BillingAddress() {
-		
-	}
-	
 	public BillingAddress(String address, String city, Integer postalCode, String province, String country,
 			String countryCode, String info) {
 		this.address = address;
