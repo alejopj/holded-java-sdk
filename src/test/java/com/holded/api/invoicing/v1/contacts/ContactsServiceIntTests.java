@@ -25,7 +25,6 @@ public class ContactsServiceIntTests {
 	
 	@Before
 	public void before() {
-		
 		List<Contact> contacts = contactsService.listContacts();
 		
 		for (Contact contact : contacts) {
@@ -43,8 +42,8 @@ public class ContactsServiceIntTests {
 		
 		// TODO Get random values from the API.
 		String contactGroupId = null;
-		Long clientRecord = null;
-		Long supplierRecord = null;
+		Integer clientRecord = null;
+		Integer supplierRecord = null;
 		CreateContactBodyParams createContactBodyParams =
 				ContactsServiceTestUtils.getCreateContactBodyParams(contactGroupId, clientRecord, supplierRecord);
 		CreateContactResponse createContactResponse = contactsService.createContact(createContactBodyParams);
@@ -66,8 +65,8 @@ public class ContactsServiceIntTests {
 		
 		// TODO Get random values from the API.
 		String contactGroupId = null;
-		Long clientRecord = null;
-		Long supplierRecord = null;
+		Integer clientRecord = null;
+		Integer supplierRecord = null;
 		CreateContactBodyParams createContactBodyParams =
 				ContactsServiceTestUtils.getCreateContactBodyParams(contactGroupId, clientRecord, supplierRecord);
 		CreateContactResponse createContactResponse = contactsService.createContact(createContactBodyParams);
@@ -85,8 +84,8 @@ public class ContactsServiceIntTests {
 		
 		// TODO Get random values from the API.
 		String contactGroupId = null;
-		Long clientRecord = null;
-		Long supplierRecord = null;
+		Integer clientRecord = null;
+		Integer supplierRecord = null;
 		CreateContactBodyParams createContactBodyParams =
 				ContactsServiceTestUtils.getCreateContactBodyParams(contactGroupId, clientRecord, supplierRecord);
 		CreateContactResponse createContactResponse = contactsService.createContact(createContactBodyParams);
@@ -110,8 +109,8 @@ public class ContactsServiceIntTests {
 		
 		// TODO Get random values from the API.
 		String contactGroupId = null;
-		Long clientRecord = null;
-		Long supplierRecord = null;
+		Integer clientRecord = null;
+		Integer supplierRecord = null;
 		CreateContactBodyParams createContactBodyParams =
 				ContactsServiceTestUtils.getCreateContactBodyParams(contactGroupId, clientRecord, supplierRecord);
 		CreateContactResponse createContactResponse = contactsService.createContact(createContactBodyParams);
@@ -142,8 +141,8 @@ public class ContactsServiceIntTests {
 		
 		// TODO Get random values from the API.
 		String contactGroupId = null;
-		Long clientRecord = null;
-		Long supplierRecord = null;
+		Integer clientRecord = null;
+		Integer supplierRecord = null;
 		CreateContactBodyParams createContactBodyParams =
 				ContactsServiceTestUtils.getCreateContactBodyParams(contactGroupId, clientRecord, supplierRecord);
 		CreateContactResponse createContactResponse = contactsService.createContact(createContactBodyParams);

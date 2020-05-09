@@ -18,8 +18,8 @@ public class UpdateContactBodyParams implements Serializable {
 	private final String swift;
 	private final String sepaRef;
 	private final Long sepaDate;
-	private final Long clientRecord;
-	private final Long supplierRecord;
+	private final Integer clientRecord;
+	private final Integer supplierRecord;
 	private final String groupId;
 	private final ContactTaxOperation taxOperation;
 	private final BillingAddress billAddress;
@@ -28,10 +28,10 @@ public class UpdateContactBodyParams implements Serializable {
 	private final NumberingSeries numberingSeries;
 	
 	public UpdateContactBodyParams(String name, String code, String tradeName, String email, String mobile,
-			String phone, ContactType type, String iban, String swift, String sepaRef, Long sepaDate, Long clientRecord,
-			Long supplierRecord, String groupId, ContactTaxOperation taxOperation, BillingAddress billAddress,
-			List<UpdatableShippingAddress> shippingAddresses, ContactSocialNetworks socialNetworks,
-			NumberingSeries numberingSeries) {
+			String phone, ContactType type, String iban, String swift, String sepaRef, Long sepaDate,
+			Integer clientRecord, Integer supplierRecord, String groupId, ContactTaxOperation taxOperation,
+			BillingAddress billAddress, List<UpdatableShippingAddress> shippingAddresses,
+			ContactSocialNetworks socialNetworks, NumberingSeries numberingSeries) {
 		this.name = name;
 		this.code = code;
 		this.tradeName = tradeName;
@@ -97,11 +97,11 @@ public class UpdateContactBodyParams implements Serializable {
 		return sepaDate;
 	}
 
-	public Long getClientRecord() {
+	public Integer getClientRecord() {
 		return clientRecord;
 	}
 
-	public Long getSupplierRecord() {
+	public Integer getSupplierRecord() {
 		return supplierRecord;
 	}
 

@@ -25,7 +25,8 @@ public class Contact implements Serializable {
 	private final Long supplierRecord;
 	private final BillingAddress billAddress;
 	private final ContactDefaults defaults;
-	private final ContactSocialNetworks socialNetworks;
+	// TODO Ignored due to API's issue. Not RFC 8259 compliant. When data is present it returns an object. Otherwise it returns an array.
+	private final transient ContactSocialNetworks socialNetworks;
 	private final List<String> tags;
 	private final List<ContactNote> notes;
 	private final List<ContactPerson> contactPersons;

@@ -22,8 +22,12 @@ public class TestDataGenerator {
 		return FAKER.internet().uuid().replace("-", "");
 	}
 	
+	public static Integer getIntegerId() {
+		return getInteger(Integer.MAX_VALUE);
+	}
+	
 	public static Long getLongId() {
-		return FAKER.random().nextLong();
+		return Math.abs(FAKER.random().nextLong());
 	}
 	
 	// Email
@@ -199,7 +203,7 @@ public class TestDataGenerator {
 	}
 	
 	public static BigDecimal getNumber() {
-		return new BigDecimal(FAKER.random().nextDouble());
+		return new BigDecimal(Math.abs(FAKER.random().nextDouble()));
 	}
 	
 	// Product

@@ -45,8 +45,6 @@ public class ContactsServiceImpl implements ContactsService {
 		
 		WebTarget webTarget = baseWebTarget;
 		
-		System.err.println("bodyParams: " + GSON.toJson(bodyParams));
-		
 		return GSON.fromJson(webTarget.request(MediaType.APPLICATION_JSON).header(KEY, API_KEY)
 				.post(Entity.json(GSON.toJson(bodyParams)), String.class), CreateContactResponse.class);
 	}

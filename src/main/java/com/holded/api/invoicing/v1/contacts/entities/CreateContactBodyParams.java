@@ -20,8 +20,8 @@ public class CreateContactBodyParams implements Serializable {
 	private final String groupId;
 	private final ContactTaxOperation taxOperation;
 	private final Long sepaDate;
-	private final Long clientRecord;
-	private final Long supplierRecord;
+	private final Integer clientRecord;
+	private final Integer supplierRecord;
 	private final BillingAddress billAddress;
 	private final NumberingSeries numberingSeries;
 	private final List<CreatableShippingAddress> shippingAddresses;
@@ -33,7 +33,7 @@ public class CreateContactBodyParams implements Serializable {
 	
 	public CreateContactBodyParams(String customId, String name, String code, String email, String mobile, String phone,
 			ContactType type, String iban, String swift, String sepaRef, String groupId,
-			ContactTaxOperation taxOperation, Long sepaDate, Long clientRecord, Long supplierRecord,
+			ContactTaxOperation taxOperation, Long sepaDate, Integer clientRecord, Integer supplierRecord,
 			BillingAddress billAddress, NumberingSeries numberingSeries, List<CreatableShippingAddress> shippingAddresses,
 			EditableContactDefaults defaults, ContactSocialNetworks socialNetworks, List<String> tags, String note,
 			List<EditableContactPerson> contactPersons) {
@@ -114,11 +114,11 @@ public class CreateContactBodyParams implements Serializable {
 		return sepaDate;
 	}
 
-	public Long getClientRecord() {
+	public Integer getClientRecord() {
 		return clientRecord;
 	}
 
-	public Long getSupplierRecord() {
+	public Integer getSupplierRecord() {
 		return supplierRecord;
 	}
 

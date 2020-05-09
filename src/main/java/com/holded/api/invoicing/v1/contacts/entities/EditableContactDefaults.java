@@ -9,9 +9,9 @@ public class EditableContactDefaults implements Serializable {
 
 	private static final long serialVersionUID = -6378160976971992728L;
 	
-	private final Long expensesAccountRecord;
+	private final Integer expensesAccountRecord;
 	private final String expensesAccountName;
-	private final Long salesAccountRecord;
+	private final Integer salesAccountRecord;
 	private final String salesAccountName;
 	private final Integer dueDays;
 	private final Integer salesTax;
@@ -22,10 +22,10 @@ public class EditableContactDefaults implements Serializable {
 	private final Boolean showTradeNameOnDocs;
 	private final Boolean showCountryOnDocs;
 	
-	public EditableContactDefaults(Long expensesAccountRecord, String expensesAccountName, Long salesAccountRecord,
-			String salesAccountName, Integer dueDays, Integer salesTax, Integer purchasesTax,
-			PaymentMethod paymentMethod, Integer discount, Language language, Boolean showTradeNameOnDocs,
-			Boolean showCountryOnDocs) {
+	public EditableContactDefaults(Integer expensesAccountRecord, String expensesAccountName,
+			Integer salesAccountRecord, String salesAccountName, Integer dueDays, Integer salesTax,
+			Integer purchasesTax, PaymentMethod paymentMethod, Integer discount, Language language,
+			Boolean showTradeNameOnDocs, Boolean showCountryOnDocs) {
 		this.expensesAccountRecord = expensesAccountRecord;
 		this.expensesAccountName = expensesAccountName;
 		this.salesAccountRecord = salesAccountRecord;
@@ -40,7 +40,7 @@ public class EditableContactDefaults implements Serializable {
 		this.showCountryOnDocs = showCountryOnDocs;
 	}
 
-	public Long getExpensesAccountRecord() {
+	public Integer getExpensesAccountRecord() {
 		return expensesAccountRecord;
 	}
 
@@ -48,7 +48,7 @@ public class EditableContactDefaults implements Serializable {
 		return expensesAccountName;
 	}
 
-	public Long getSalesAccountRecord() {
+	public Integer getSalesAccountRecord() {
 		return salesAccountRecord;
 	}
 

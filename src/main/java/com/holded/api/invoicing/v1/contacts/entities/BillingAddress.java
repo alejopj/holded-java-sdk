@@ -8,13 +8,13 @@ public class BillingAddress implements Serializable {
 	
 	private String address;
 	private String city;
-	private Integer postalCode;
+	private String postalCode;
 	private String province;
 	private String country;
 	private String countryCode;
 	private String info;
 
-	public BillingAddress(String address, String city, Integer postalCode, String province, String country,
+	public BillingAddress(String address, String city, String postalCode, String province, String country,
 			String countryCode, String info) {
 		this.address = address;
 		this.city = city;
@@ -33,7 +33,7 @@ public class BillingAddress implements Serializable {
 		return city;
 	}
 
-	public Integer getPostalCode() {
+	public String getPostalCode() {
 		return postalCode;
 	}
 

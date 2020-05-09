@@ -23,8 +23,8 @@ public class ContactsServiceTestUtils {
 	
 	private static final Integer DUE_DATES = 7;
 	
-	public static CreateContactBodyParams getCreateContactBodyParams(String contactGroupId, Long clientRecord,
-			Long supplierRecord) {
+	public static CreateContactBodyParams getCreateContactBodyParams(String contactGroupId, Integer clientRecord,
+			Integer supplierRecord) {
 		String customId = TestDataGenerator.getAlphaNumericId();
 		String name = TestDataGenerator.getContactName();
 		String code = TestDataGenerator.getContactCode();
@@ -50,8 +50,8 @@ public class ContactsServiceTestUtils {
 				shippingAddresses, defaults, socialNetworks, tags, note, contactPersons);
 	}
 
-	public static UpdateContactBodyParams getUpdateContactBodyParams(String contactGroupId, Long clientRecord,
-			Long supplierRecord) {
+	public static UpdateContactBodyParams getUpdateContactBodyParams(String contactGroupId, Integer clientRecord,
+			Integer supplierRecord) {
 		String name = TestDataGenerator.getContactName();
 		String code = TestDataGenerator.getContactCode();
 		String tradeName = TestDataGenerator.getContactName();
@@ -76,7 +76,7 @@ public class ContactsServiceTestUtils {
 	private static BillingAddress getBillingAddress() {
 		String address = TestDataGenerator.getAddress();
 		String city = TestDataGenerator.getCity();
-		Integer postalCode = TestDataGenerator.getIntegerPostalCode();
+		String postalCode = TestDataGenerator.getPostalCode();
 		String province = TestDataGenerator.getProvince();
 		String country = TestDataGenerator.getCountry();
 		String countryCode = TestDataGenerator.getCountryCode();
@@ -119,9 +119,9 @@ public class ContactsServiceTestUtils {
 	
 	private static EditableContactDefaults getEditableContactDefaults() {
 		// TODO Validate if it is possible to create accounts from here.
-		Long expensesAccountRecord = TestDataGenerator.getLongId();
+		Integer expensesAccountRecord = TestDataGenerator.getIntegerId();
 		String expensesAccountName = TestDataGenerator.getWord();
-		Long salesAccountRecord = TestDataGenerator.getLongId();
+		Integer salesAccountRecord = TestDataGenerator.getIntegerId();
 		String salesAccountName = TestDataGenerator.getWord();
 		Integer dueDays = TestDataGenerator.getInteger(DUE_DATES);
 		Integer salesTax = TestDataGenerator.getPercentage();
