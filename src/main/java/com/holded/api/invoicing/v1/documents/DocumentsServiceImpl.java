@@ -48,11 +48,11 @@ public class DocumentsServiceImpl implements DocumentsService {
 		
 		WebTarget webTarget = baseWebTarget.path(docType.toString());
 		
-		webTarget.queryParam("starttmp", queryParams.getStarttmp());
-		webTarget.queryParam("endtmp", queryParams.getEndtmp());
-		webTarget.queryParam("contactid", queryParams.getContactId());
-		webTarget.queryParam("paid", queryParams.getPaidStatus().toString());
-		webTarget.queryParam("billed", queryParams.getBilledStatus().toString());
+		if (queryParams.getStarttmp() != null) { webTarget.queryParam("starttmp", queryParams.getStarttmp()); }
+		if (queryParams.getEndtmp() != null) { webTarget.queryParam("endtmp", queryParams.getEndtmp()); }
+		if (queryParams.getContactId() != null) { webTarget.queryParam("contactid", queryParams.getContactId()); }
+		if (queryParams.getPaidStatus() != null) { webTarget.queryParam("paid", queryParams.getPaidStatus().toString()); }
+		if (queryParams.getBilledStatus() != null) { webTarget.queryParam("billed", queryParams.getBilledStatus().toString()); }
 		
 		return GSON.fromJson(webTarget.request(MediaType.APPLICATION_JSON).header(KEY, API_KEY).get(String.class),
 				new TypeToken<List<Document>>(){}.getType());
@@ -64,7 +64,7 @@ public class DocumentsServiceImpl implements DocumentsService {
 		WebTarget webTarget = baseWebTarget.path(docType.toString());
 		
 		return GSON.fromJson(webTarget.request(MediaType.APPLICATION_JSON).header(KEY, API_KEY)
-				.post(Entity.json(bodyParams), String.class), CreateDocumentResponse.class);
+				.post(Entity.json(GSON.toJson(bodyParams)), String.class), CreateDocumentResponse.class);
 	}
 
 	@Override
@@ -83,7 +83,7 @@ public class DocumentsServiceImpl implements DocumentsService {
 		WebTarget webTarget = baseWebTarget.path(docType.toString()).path(documentId);
 		
 		return GSON.fromJson(webTarget.request(MediaType.APPLICATION_JSON).header(KEY, API_KEY)
-				.put(Entity.json(bodyParams), String.class), UpdateDocumentResponse.class);
+				.put(Entity.json(GSON.toJson(bodyParams)), String.class), UpdateDocumentResponse.class);
 	}
 
 	@Override
@@ -101,7 +101,7 @@ public class DocumentsServiceImpl implements DocumentsService {
 		WebTarget webTarget = baseWebTarget.path(docType.toString()).path(documentId).path("pay");
 		
 		return GSON.fromJson(webTarget.request(MediaType.APPLICATION_JSON).header(KEY, API_KEY)
-				.post(Entity.json(bodyParams), String.class), PayDocumentResponse.class);
+				.post(Entity.json(GSON.toJson(bodyParams)), String.class), PayDocumentResponse.class);
 	}
 
 	@Override
@@ -111,7 +111,7 @@ public class DocumentsServiceImpl implements DocumentsService {
 		WebTarget webTarget = baseWebTarget.path(docType.toString()).path(documentId).path("send");
 		
 		return GSON.fromJson(webTarget.request(MediaType.APPLICATION_JSON).header(KEY, API_KEY)
-				.post(Entity.json(bodyParams), String.class), SendDocumentResponse.class);
+				.post(Entity.json(GSON.toJson(bodyParams)), String.class), SendDocumentResponse.class);
 	}
 
 	@Override
@@ -129,7 +129,7 @@ public class DocumentsServiceImpl implements DocumentsService {
 		WebTarget webTarget = baseWebTarget.path(DocumentType.SALES_ORDER.toString()).path(documentId).path("shipall");
 		
 		return GSON.fromJson(webTarget.request(MediaType.APPLICATION_JSON).header(KEY, API_KEY)
-				.post(Entity.json(null), String.class), ShipAllItemsResponse.class);
+				.post(Entity.json(GSON.toJson(null)), String.class), ShipAllItemsResponse.class);
 	}
 
 	@Override
@@ -138,7 +138,7 @@ public class DocumentsServiceImpl implements DocumentsService {
 		WebTarget webTarget = baseWebTarget.path(DocumentType.SALES_ORDER.toString()).path(documentId).path("shipbylines");
 		
 		return GSON.fromJson(webTarget.request(MediaType.APPLICATION_JSON).header(KEY, API_KEY)
-				.post(Entity.json(bodyParams), String.class), ShipItemsByLineResponse.class);
+				.post(Entity.json(GSON.toJson(bodyParams)), String.class), ShipItemsByLineResponse.class);
 	}
 
 	@Override

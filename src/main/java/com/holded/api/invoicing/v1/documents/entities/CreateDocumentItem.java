@@ -1,7 +1,6 @@
 package com.holded.api.invoicing.v1.documents.entities;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.List;
 
 public class CreateDocumentItem implements Serializable {
@@ -11,19 +10,19 @@ public class CreateDocumentItem implements Serializable {
 	private final String name;
 	private final String desc;
 	private final Integer units;
-	private final String sku;
+	private final transient String sku;
 	private final String serviceId;
 	private final String accountingAccountId;
-	private final BigDecimal subtotal;
-	private final BigDecimal discount;
-	private final BigDecimal tax;
-	private final BigDecimal retention;
-	private final BigDecimal equivalenceSurcharge;
+	private final Float subtotal;
+	private final Float discount;
+	private final Integer tax;
+	private final Float retention;
+	private final Float equivalenceSurcharge;
 	private final List<String> tags;
 	
 	public CreateDocumentItem(String name, String desc, Integer units, String sku, String serviceId,
-			String accountingAccountId, BigDecimal subtotal, BigDecimal discount, BigDecimal tax, BigDecimal retention,
-			BigDecimal equivalenceSurcharge, List<String> tags) {
+			String accountingAccountId, Float subtotal, Float discount, Integer tax, Float retention,
+			Float equivalenceSurcharge, List<String> tags) {
 		this.name = name;
 		this.desc = desc;
 		this.units = units;
@@ -62,23 +61,23 @@ public class CreateDocumentItem implements Serializable {
 		return accountingAccountId;
 	}
 
-	public BigDecimal getSubtotal() {
+	public Float getSubtotal() {
 		return subtotal;
 	}
 
-	public BigDecimal getDiscount() {
+	public Float getDiscount() {
 		return discount;
 	}
 
-	public BigDecimal getTax() {
+	public Integer getTax() {
 		return tax;
 	}
 
-	public BigDecimal getRetention() {
+	public Float getRetention() {
 		return retention;
 	}
 
-	public BigDecimal getEquivalenceSurcharge() {
+	public Float getEquivalenceSurcharge() {
 		return equivalenceSurcharge;
 	}
 

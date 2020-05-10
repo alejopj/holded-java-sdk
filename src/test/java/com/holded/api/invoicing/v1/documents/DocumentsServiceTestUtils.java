@@ -114,7 +114,7 @@ public class DocumentsServiceTestUtils {
 		String contactCountry = TestDataGenerator.getCountry();
 		String contactCountryCode = TestDataGenerator.getCountryCode();
 		String description = TestDataGenerator.getShortText();
-		Long date = TestDataGenerator.getPastDate();
+		Integer date = TestDataGenerator.getPastDateAsInteger();
 		String notes = TestDataGenerator.getShortText();
 		String salesChannelId = TestDataGenerator.getAlphaNumericId();
 		PaymentMethod paymentMethodId = TestDataGenerator.getPaymentMethod();
@@ -125,15 +125,15 @@ public class DocumentsServiceTestUtils {
 		String invoiceNum = TestDataGenerator.getAlphaNumericId();
 		String numSerieId = TestDataGenerator.getAlphaNumericId();
 		String currency = TestDataGenerator.getCurrency();
-		BigDecimal currencyChange = TestDataGenerator.getCurrencyExchangeRate();
+		Float currencyChange = TestDataGenerator.getCurrencyExchangeRate();
 		List<String> tags = CommonTestUtils.getTags();
-		Long dueDate = TestDataGenerator.getFutureDate();
+		Integer dueDate = TestDataGenerator.getFutureDateAsInteger();
 		String shippingAddress = TestDataGenerator.getAddress();
 		String shippingPostalCode = TestDataGenerator.getPostalCode();
 		String shippingCity = TestDataGenerator.getCity();
 		String shippingProvince = TestDataGenerator.getProvince();
 		String shippingCountry = TestDataGenerator.getCountry();
-		BigDecimal salesChannel = TestDataGenerator.getNumber();
+		Float salesChannel = TestDataGenerator.getFloat();
 		return new CreateDocumentBodyParams(
 				contactCode, contactName, contactEmail,
 				contactAddress, contactCity, contactPostalCode, contactProvince, contactCountry, contactCountryCode,
@@ -161,11 +161,11 @@ public class DocumentsServiceTestUtils {
 		String sku = TestDataGenerator.getAlphaNumericId();
 		String serviceId = TestDataGenerator.getAlphaNumericId();
 		String accountingAccountId = TestDataGenerator.getAlphaNumericId();
-		BigDecimal subtotal = TestDataGenerator.getNumber();
-		BigDecimal discount = TestDataGenerator.getNumber();
-		BigDecimal tax = TestDataGenerator.getNumber();
-		BigDecimal retention = TestDataGenerator.getNumber();
-		BigDecimal equivalenceSurcharge = TestDataGenerator.getNumber();
+		Float subtotal = TestDataGenerator.getFloat();
+		Float discount = TestDataGenerator.getFloat();
+		Integer tax = TestDataGenerator.getPercentage();
+		Float retention = TestDataGenerator.getFloat();
+		Float equivalenceSurcharge = TestDataGenerator.getFloat();
 		List<String> tags = CommonTestUtils.getTags();
 		return new CreateDocumentItem(name, desc, units, sku, serviceId, accountingAccountId, subtotal, discount, tax,
 				retention, equivalenceSurcharge, tags);

@@ -173,6 +173,14 @@ public class TestDataGenerator {
 	public static Long getFutureDate() {
 		return FAKER.date().future(1, TimeUnit.SECONDS).toInstant().toEpochMilli();
 	}
+	
+	public static Integer getPastDateAsInteger() {
+		return Math.abs(getPastDate().intValue());
+	}
+	
+	public static Integer getFutureDateAsInteger() {
+		return Math.abs(getFutureDate().intValue());
+	}
 
 	// Language
 	
@@ -188,8 +196,8 @@ public class TestDataGenerator {
 		return FAKER.currency().code();
 	}
 	
-	public static BigDecimal getCurrencyExchangeRate() {
-		return getNumber();
+	public static Float getCurrencyExchangeRate() {
+		return getFloat();
 	}
 	
 	// Number
@@ -202,8 +210,16 @@ public class TestDataGenerator {
 		return FAKER.random().nextInt(n);
 	}
 	
+	public static Float getFloat() {
+		return Math.abs(getNumber().floatValue());
+	}
+	
 	public static BigDecimal getNumber() {
-		return new BigDecimal(Math.abs(FAKER.random().nextDouble()));
+		int multiplier = getInteger(Integer.MAX_VALUE);
+		double zeroToOneDouble = FAKER.random().nextDouble();
+		double multipliedDouble = multiplier * zeroToOneDouble;
+		double twoDecimalsDouble = Math.round(multipliedDouble * 100.0) / 100.0;
+		return new BigDecimal(twoDecimalsDouble).abs();
 	}
 	
 	// Product
